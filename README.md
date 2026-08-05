@@ -15,7 +15,7 @@ O projeto tem como objetivo automatizar e validar o fluxo de login da aplicaçã
 
 ## Estrutura do projeto
 
----
+```text
 automatizado-selenium/
 ├── pom.xml
 ├── .gitignore
@@ -32,7 +32,7 @@ automatizado-selenium/
                     └── test/
                         ├── BaseTest.java
                         └── LoginTest.java
----
+```
 
 ## Testes automatizados
 
