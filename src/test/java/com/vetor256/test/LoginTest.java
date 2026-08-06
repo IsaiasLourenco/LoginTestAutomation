@@ -8,10 +8,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
 import com.vetor256.page.LoginPO;
 
+@TestMethodOrder(MethodOrderer.MethodName.class)
 public class LoginTest extends BaseTest {
 
     private LoginPO loginPage;
