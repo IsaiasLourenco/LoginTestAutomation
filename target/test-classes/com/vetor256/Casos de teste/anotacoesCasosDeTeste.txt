@@ -1,0 +1,56 @@
+Passo a passo para criação de testes automatizados.
+
+1º Estruturar o Page Object de Login.
+    1.1 Criar um arquivo chamado LoginPO.java dentro da pasta Page. - ok
+    1.2 Fazer herança do arquivo BasePO.java. - ok
+    1.3 Fazer o mapeamento de todos os elementos da tela de Login. - ok
+        1.3.1 Criar os elementos com PageFactory. - ok
+
+2º Estruturar o arquivo de teste de Login.
+    2.1 Criar um arquivo chamado LoginTest.java. - ok
+    2.2 Fazer a herança do arquivo BaseTest.java. - ok
+    2.3 Criar um método inicial que saiba instanciar uma PO de Login. - ok
+    2.4 Criar os testes baseados na planilha.
+        2.4.1 tc001_LoginComCredenciaisInexistentes. - ok
+        2.4.2 tc002_LoginComSenhaInexistente. - ok
+        2.4.3 tc003_LoginComEmailInexistente. - ok
+        2.4.4 tc004_LoginComCredenciaisInvalidas. - ok
+        2.4.5 tc005_LoginComSenhaInvalida. - ok
+        2.4.6 tc006_LoginComEmailSenhaInvalido. - ok
+        2.4.7 tc007_LoginComCredenciaisValidas. - ok
+
+3º Estruturar o Page Object de Produtos.
+    3.1 Criar um arquivo chamado ProdutosPO.java dentro da pasta page. - ok
+    3.2 Fazer herança do arquivo BasePO.java. - ok
+    3.3 Fazer o mapeamento de todos os elementos da tela de Cadastro de Produtos. - ok
+        3.3.1 Criar os elementos com o PageFactory. - ok
+
+4º Estruturar o arquivo teste de Produtos. - ok
+    4.1 Criar o arquivo chamado ProdutosTest.java. - ok
+    4.2 Fazer a herança dp arqiovp BaseTest.java. - ok
+    4.3 Criar um método inicial que saiba instanciar uma PO de Produtos. - ok
+    4.4 Criar os testes baseados na planilha
+        4.4.01 tc001_AoClicarEmControleDeProdutosDeveFicarNaPagina. - ok
+        4.4.02 tc002_AoClicarEmVoltarPaginaDeveVoltarParaTelaDeLogin. - ok
+        4.4.03 tc003_DeveTrazerNaTabelaOsUltimosProdutosCadastrados.
+        4.4.04 tc004_DeveTerOsTitulosDaTabelaPadronizadosEmPortuguêsIniciandoComLetrasMaiusculas.
+        4.4.05 tc005_DeveAbrirTelaDeCadastroAoClicarNoBotaoCriarUmaUnicaVez.
+        4.4.06 tc006_DeveFecharTelaDeCadastroDeProdutoAoClicarNoIconeX.
+        4.4.07 tc007_DeveFecharTelaDeCadastroDeProdutoAoClicarNoBotaoSair.
+        4.4.08 tc008_DeveMostrarMensagemInformandoQueCamposSaoObrigatoriosAoClicarEmSalvarSemPreencherOsCamposComInformacoesDoProduto.
+        4.4.09 tc009_DeveFecharMensagemAoClicarNoIconeXquandoAMensagemEstaSendoExibida.
+        4.4.10 tc010_CampoDeDataNaoDeveAceitarDatasInexistentes.
+        4.4.11 tc011_CampoCodigoDeveSerFormatadoComo000.
+        4.4.12 tc012_CampoQuantidadeDeveSerFormatadoComo000.
+        4.4.13 tc013_CampoValorDeveSerFormatadoComValorMonetario.
+        4.4.14 tc014_DeveFecharTelaDeCadastroDeProdutoAoDigitarEsc.
+        4.4.15 tc015_AoDigitarTodosCamposCorretamenteEclicarEmDeveMostrarNaTabelaRegistroRecemIncluido.
+        4.4.16 tc016_AoClicarNoIconeDeEdicaoOuApalavraEditarModalDeInsercaoEdicaoDeveAparecerComOsDadosDoRegistroAserEditado.
+        4.4.17 tc017_AoMudarAlgumCampoNaEdicaoRegistroDeveSerSalvoSemProblemas.
+        4.4.18 tc018_DeveAparecerUmaMensagemPedindoConfirmacaoAoClicarNoIconeOuPalavraExcluirParaApagarRegistro.
+        4.4.19 tc019_AoConfirmarExclusaoRegistroDeveSerRemovidoDaRabela.
+        4.4.20 tc020_DataDeveSerApresentadaNaTabelaComFormatoBrasileiro00/00/0000.
+        4.4.21 tc021_FormatoDoCampoCodigoDeveSer000.
+        4.4.22 tc022_FormatoDoCampoQuantidadeDeveSer000.
+        4.4.23 tc023_CampoCodigoDeveSerAutoIncremento.
+

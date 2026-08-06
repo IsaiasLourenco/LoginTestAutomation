@@ -1,4 +1,5 @@
 package com.vetor256.test;
+import com.vetor256.utils.constantes;
 
 import java.time.Duration;
 
@@ -29,7 +30,7 @@ public class LoginTest extends BaseTest {
         String mensagem = loginPage.getMensagem();
 
         assertEquals(
-                "Informe e-mail e senha, os campos não podem ser brancos.",
+            constantes.MSG_CAMPOS_OBRIGATORIOS,
                 mensagem);
     }
 
@@ -38,108 +39,67 @@ public class LoginTest extends BaseTest {
         String mensagem = loginPage.getMensagem();
 
         assertEquals(
-                "E-mail ou senha inválidos",
-                mensagem);
+            constantes.MSG_CREDENCIAIS_INVALIDAS,
+            mensagem);
     }
 
     @Test
-    public void teste001_LoginComCredenciaisInexistentes() {
+    public void tc001_LoginComCredenciaisInexistentes() {
 
-        loginPage.inputEmail.clear();
-        loginPage.inputSenha.clear();
-
-        loginPage.buttonEntrar.click();
+        loginPage.efetuarLogin("", "");
 
         validarMensagemCamposObrigatorios();
     }
 
     @Test
-    public void teste002_LoginComSenhaInexistente() {
+    public void tc002_LoginComSenhaInexistente() {
 
-        loginPage.inputEmail.clear();
-        loginPage.inputSenha.clear();
-
-        loginPage.inputEmail.sendKeys("teste");
-
-        loginPage.buttonEntrar.click();
+        loginPage.efetuarLogin("teste", "");
 
         validarMensagemCamposObrigatorios();
     }
 
     @Test
-    public void teste003_LoginComEmailInexistente() {
+    public void tc003_LoginComEmailInexistente() {
 
-        loginPage.inputEmail.clear();
-        loginPage.inputSenha.clear();
-
-        loginPage.inputSenha.sendKeys("123");
-
-        loginPage.buttonEntrar.click();
+        loginPage.efetuarLogin("", "123");
 
         validarMensagemCamposObrigatorios();
     }
 
     @Test
-    public void teste004_LoginComCredenciaisInvalidas() {
+    public void tc004_LoginComCredenciaisInvalidas() {
 
-        loginPage.inputEmail.clear();
-        loginPage.inputSenha.clear();
-
-        loginPage.inputEmail.sendKeys("teste");
-        loginPage.inputSenha.sendKeys("123");
-
-        loginPage.buttonEntrar.click();
+        loginPage.efetuarLogin("teste", "123");
 
         validarMensagemCredenciaisInvalidas();
     }
 
     @Test
-    public void teste005_LoginComSenhaInvalida() {
+    public void tc005_LoginComSenhaInvalida() {
 
-        loginPage.inputEmail.clear();
-        loginPage.inputSenha.clear();
-
-        loginPage.inputEmail.sendKeys("admin@admin.com");
-        loginPage.inputSenha.sendKeys("123");
-
-        loginPage.buttonEntrar.click();
+        loginPage.efetuarLogin(constantes.EMAIL_VALIDO, "123");
 
         validarMensagemCredenciaisInvalidas();
     }
 
     @Test
-    public void teste006_LoginComEmailSenhaInvalido() {
+    public void tc006_LoginComEmailSenhaInvalido() {
 
-        loginPage.inputEmail.clear();
-        loginPage.inputSenha.clear();
-
-        loginPage.inputEmail.sendKeys("teste");
-        loginPage.inputSenha.sendKeys("admin@123");
-
-        loginPage.buttonEntrar.click();
-
+        loginPage.efetuarLogin("teste", constantes.SENHA_VALIDA);
         validarMensagemCredenciaisInvalidas();
     }
 
     @Test
-    public void teste007_LoginComCredenciaisValidas() {
+    public void tc007_LoginComCredenciaisValidas() {
 
-        loginPage.inputEmail.clear();
-        loginPage.inputSenha.clear();
-
-        loginPage.inputEmail.sendKeys("admin@admin.com");
-        loginPage.inputSenha.sendKeys("admin@123");
-
-        loginPage.buttonEntrar.click();
+        loginPage.efetuarLogin(constantes.EMAIL_VALIDO, constantes.SENHA_VALIDA);
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
-        wait.until(
-                ExpectedConditions.urlToBe(
-                        "http://localhost/ProdContr/produtos.html?teste=123"));
 
-        assertEquals(
-                "http://localhost/ProdContr/produtos.html?teste=123",
-                driver.getCurrentUrl());
+        wait.until(ExpectedConditions.urlToBe(constantes.URL_PRODUTOS));
+
+        assertEquals(constantes.URL_PRODUTOS, driver.getCurrentUrl());
     }
 }

@@ -18,10 +18,6 @@ public class LoginPO extends BasePO {
     @FindBy(id = "mensagem")
     public WebElement spanMensagem;
 
-    /**
-     *  Construtor padrão para criação da uma nova instânca da página de login
-     * @param driver Driver da página de login
-     */
     public LoginPO(WebDriver driver) {
         super(driver);
     }
@@ -30,7 +26,14 @@ public class LoginPO extends BasePO {
         return spanMensagem.getText();
     }
 
-    public static final String MENSAGEM_CAMPOS_OBRIGATORIOS =
-    "Informe e-mail e senha, os campos não podem ser brancos.";
+    public void efetuarLogin(String email, String senha) {
 
+        inputEmail.clear();
+        inputSenha.clear();
+
+        inputEmail.sendKeys(email);
+        inputSenha.sendKeys(senha);
+
+        buttonEntrar.click();
+    }
 }
